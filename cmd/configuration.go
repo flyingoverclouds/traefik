@@ -1,4 +1,4 @@
-package main
+package cmd
 
 import (
 	"time"
@@ -307,6 +307,9 @@ func NewTraefikConfiguration() *TraefikConfiguration {
 			IdleTimeout:               flaeg.Duration(0),
 			HealthCheck: &configuration.HealthCheckConfig{
 				Interval: flaeg.Duration(configuration.DefaultHealthCheckInterval),
+			},
+			LifeCycle: &configuration.LifeCycle{
+				GraceTimeOut: flaeg.Duration(configuration.DefaultGraceTimeout),
 			},
 			CheckNewVersion: true,
 		},
